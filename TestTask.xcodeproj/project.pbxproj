@@ -45,6 +45,9 @@
 		555417A41795EA1800659F19 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417871795EA1800659F19 /* MagicalRecord+ShorthandSupport.m */; };
 		555417A51795EA1800659F19 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417891795EA1800659F19 /* MagicalRecord.m */; };
 		555417A71795EA4F00659F19 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555417A61795EA4F00659F19 /* CoreData.framework */; };
+		555417CE1795F86000659F19 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CA1795F86000659F19 /* Message.m */; };
+		555417CF1795F86000659F19 /* _Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CD1795F86000659F19 /* _Message.m */; };
+		555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555417D01795F87000659F19 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -146,6 +149,11 @@
 		555417A61795EA4F00659F19 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		555417B11795EE9D00659F19 /* mogen.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mogen.sh; sourceTree = "<group>"; };
 		555417B21795EEBD00659F19 /* mogend.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mogend.sh; sourceTree = "<group>"; };
+		555417C91795F86000659F19 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		555417CA1795F86000659F19 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		555417CC1795F86000659F19 /* _Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Message.h; sourceTree = "<group>"; };
+		555417CD1795F86000659F19 /* _Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Message.m; sourceTree = "<group>"; };
+		555417D11795F87000659F19 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				5554174F1795EA1800659F19 /* Libs */,
+				555417C81795F86000659F19 /* CoreDataModels */,
 				555417341795E71200659F19 /* ViewController.h */,
 				555417351795E71200659F19 /* ViewController.m */,
 				555417321795E71200659F19 /* AppDelegate.h */,
@@ -210,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				5554173A1795E71200659F19 /* MainStoryboard.storyboard */,
+				555417D01795F87000659F19 /* DataModel.xcdatamodeld */,
 				555417371795E71200659F19 /* Default-568h@2x.png */,
 				555417381795E71200659F19 /* Default.png */,
 				555417391795E71200659F19 /* Default@2x.png */,
@@ -347,6 +357,25 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		555417C81795F86000659F19 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				555417CB1795F86000659F19 /* Private */,
+				555417C91795F86000659F19 /* Message.h */,
+				555417CA1795F86000659F19 /* Message.m */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		555417CB1795F86000659F19 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				555417CC1795F86000659F19 /* _Message.h */,
+				555417CD1795F86000659F19 /* _Message.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,6 +490,9 @@
 				555417A31795EA1800659F19 /* MagicalRecord+Setup.m in Sources */,
 				555417A41795EA1800659F19 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				555417A51795EA1800659F19 /* MagicalRecord.m in Sources */,
+				555417CE1795F86000659F19 /* Message.m in Sources */,
+				555417CF1795F86000659F19 /* _Message.m in Sources */,
+				555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +602,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		555417D01795F87000659F19 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				555417D11795F87000659F19 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 555417D11795F87000659F19 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 555417031795E6B600659F19 /* Project object */;
 }
