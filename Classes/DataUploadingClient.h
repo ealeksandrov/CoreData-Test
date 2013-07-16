@@ -12,6 +12,7 @@
 
 + (DataUploadingClient *)sharedClient;
 
+- (void)newItemAdded;
 - (void)sendMessage:(NSString *)messageString withSuccessBlock:(void (^)(NSDictionary *))successBlock andFailureBlock:(void (^)(NSString *))failureBlock;
 
 @end

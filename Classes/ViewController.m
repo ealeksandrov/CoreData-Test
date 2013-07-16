@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DataStore.h"
+#import "DataUploadingClient.h"
 #import "Message.h"
 
 @interface ViewController ()
@@ -35,7 +35,7 @@
     [df setTimeStyle:NSDateFormatterMediumStyle];
     [newMessage setMessageStr:[NSString stringWithFormat:@"test message created on %@",[df stringFromDate:[NSDate date]]]];
     [newMessage setCreationDate:[NSDate date]];
-    [[DataStore sharedStore] newItemAdded];
+    [[DataUploadingClient sharedClient] newItemAdded];
 }
 
 @end

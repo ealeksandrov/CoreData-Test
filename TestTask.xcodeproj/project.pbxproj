@@ -48,7 +48,6 @@
 		555417CE1795F86000659F19 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CA1795F86000659F19 /* Message.m */; };
 		555417CF1795F86000659F19 /* _Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CD1795F86000659F19 /* _Message.m */; };
 		555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555417D01795F87000659F19 /* DataModel.xcdatamodeld */; };
-		55ABA9D71795FE510048CE4B /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55ABA9D61795FE510048CE4B /* DataStore.m */; };
 		55B97447179605B600055789 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97435179605B600055789 /* AFHTTPClient.m */; };
 		55B97448179605B600055789 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97437179605B600055789 /* AFHTTPRequestOperation.m */; };
 		55B97449179605B600055789 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97439179605B600055789 /* AFImageRequestOperation.m */; };
@@ -168,8 +167,6 @@
 		555417CC1795F86000659F19 /* _Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Message.h; sourceTree = "<group>"; };
 		555417CD1795F86000659F19 /* _Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Message.m; sourceTree = "<group>"; };
 		555417D11795F87000659F19 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		55ABA9D51795FE510048CE4B /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
-		55ABA9D61795FE510048CE4B /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		55B97434179605B600055789 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		55B97435179605B600055789 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		55B97436179605B600055789 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -256,8 +253,6 @@
 				555417351795E71200659F19 /* ViewController.m */,
 				555417321795E71200659F19 /* AppDelegate.h */,
 				555417331795E71200659F19 /* AppDelegate.m */,
-				55ABA9D51795FE510048CE4B /* DataStore.h */,
-				55ABA9D61795FE510048CE4B /* DataStore.m */,
 				55B97455179606D400055789 /* DataUploadingClient.h */,
 				55B97456179606D400055789 /* DataUploadingClient.m */,
 			);
@@ -579,7 +574,6 @@
 				555417CE1795F86000659F19 /* Message.m in Sources */,
 				555417CF1795F86000659F19 /* _Message.m in Sources */,
 				555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */,
-				55ABA9D71795FE510048CE4B /* DataStore.m in Sources */,
 				55B97447179605B600055789 /* AFHTTPClient.m in Sources */,
 				55B97448179605B600055789 /* AFHTTPRequestOperation.m in Sources */,
 				55B97449179605B600055789 /* AFImageRequestOperation.m in Sources */,
