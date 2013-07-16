@@ -5,6 +5,7 @@
 
 
 extern const struct MessageAttributes {
+	__unsafe_unretained NSString *creationDate;
 	__unsafe_unretained NSString *messageStr;
 } MessageAttributes;
 
@@ -17,6 +18,7 @@ extern const struct MessageFetchedProperties {
 
 
 
+
 @interface MessageID : NSManagedObjectID {}
 @end
 
@@ -25,6 +27,16 @@ extern const struct MessageFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (MessageID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* creationDate;
+
+
+
+//- (BOOL)validateCreationDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -48,6 +60,12 @@ extern const struct MessageFetchedProperties {
 @end
 
 @interface _Message (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSDate*)primitiveCreationDate;
+- (void)setPrimitiveCreationDate:(NSDate*)value;
+
+
 
 
 - (NSString*)primitiveMessageStr;

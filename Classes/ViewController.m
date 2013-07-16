@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DataStore.h"
+#import "Message.h"
 
 @interface ViewController ()
 
@@ -24,6 +26,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)buttonClick:(id)sender {
+    Message *newMessage = [Message MR_createEntity];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterNoStyle];
+    [df setTimeStyle:NSDateFormatterMediumStyle];
+    [newMessage setMessageStr:[NSString stringWithFormat:@"test message created on %@",[df stringFromDate:[NSDate date]]]];
+    [newMessage setCreationDate:[NSDate date]];
+    [[DataStore sharedStore] newItemAdded];
 }
 
 @end

@@ -4,6 +4,7 @@
 #import "_Message.h"
 
 const struct MessageAttributes MessageAttributes = {
+	.creationDate = @"creationDate",
 	.messageStr = @"messageStr",
 };
 
@@ -42,6 +43,13 @@ const struct MessageFetchedProperties MessageFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic creationDate;
+
+
 
 
 

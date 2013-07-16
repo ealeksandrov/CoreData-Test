@@ -48,6 +48,7 @@
 		555417CE1795F86000659F19 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CA1795F86000659F19 /* Message.m */; };
 		555417CF1795F86000659F19 /* _Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 555417CD1795F86000659F19 /* _Message.m */; };
 		555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555417D01795F87000659F19 /* DataModel.xcdatamodeld */; };
+		55ABA9D71795FE510048CE4B /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55ABA9D61795FE510048CE4B /* DataStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -154,6 +155,8 @@
 		555417CC1795F86000659F19 /* _Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Message.h; sourceTree = "<group>"; };
 		555417CD1795F86000659F19 /* _Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Message.m; sourceTree = "<group>"; };
 		555417D11795F87000659F19 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		55ABA9D51795FE510048CE4B /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		55ABA9D61795FE510048CE4B /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 				555417351795E71200659F19 /* ViewController.m */,
 				555417321795E71200659F19 /* AppDelegate.h */,
 				555417331795E71200659F19 /* AppDelegate.m */,
+				55ABA9D51795FE510048CE4B /* DataStore.h */,
+				55ABA9D61795FE510048CE4B /* DataStore.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				555417CE1795F86000659F19 /* Message.m in Sources */,
 				555417CF1795F86000659F19 /* _Message.m in Sources */,
 				555417D21795F87000659F19 /* DataModel.xcdatamodeld in Sources */,
+				55ABA9D71795FE510048CE4B /* DataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +606,7 @@
 				555417301795E6B600659F19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

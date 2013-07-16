@@ -1,15 +1,17 @@
 //
-//  ViewController.h
+//  DataStore.h
 //  TestTask
 //
 //  Created by Evgeny Aleksandrov on 17.07.13.
 //  Copyright (c) 2013 SomeCompany. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface DataStore : NSObject
 
-- (IBAction)buttonClick:(id)sender;
++ (DataStore *)sharedStore;
+
+- (void)newItemAdded;
 
 @end
