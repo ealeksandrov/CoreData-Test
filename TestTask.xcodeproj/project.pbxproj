@@ -47,6 +47,30 @@
 		555417A71795EA4F00659F19 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555417A61795EA4F00659F19 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		555417B41795EF2E00659F19 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodel;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).mom",
+			);
+			script = "echo \"Running mogen\"\n\"${SRCROOT}/Scripts/mogen.sh\"";
+		};
+		555417BB1795F53B00659F19 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodeld;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).momd",
+				"",
+			);
+			script = "echo \"Running mogend\"\n\"${SRCROOT}/Scripts/mogend.sh\"";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		5554170B1795E6B600659F19 /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5554170E1795E6B600659F19 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -120,6 +144,8 @@
 		5554178A1795EA1800659F19 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		5554178B1795EA1800659F19 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		555417A61795EA4F00659F19 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		555417B11795EE9D00659F19 /* mogen.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mogen.sh; sourceTree = "<group>"; };
+		555417B21795EEBD00659F19 /* mogend.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mogend.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,10 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				5554174F1795EA1800659F19 /* Libs */,
-				555417321795E71200659F19 /* AppDelegate.h */,
-				555417331795E71200659F19 /* AppDelegate.m */,
 				555417341795E71200659F19 /* ViewController.h */,
 				555417351795E71200659F19 /* ViewController.m */,
+				555417321795E71200659F19 /* AppDelegate.h */,
+				555417331795E71200659F19 /* AppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -206,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				5554174A1795E7E600659F19 /* autoupdate-revision.sh */,
+				555417B11795EE9D00659F19 /* mogen.sh */,
+				555417B21795EEBD00659F19 /* mogend.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -332,6 +360,8 @@
 				5554174E1795E83200659F19 /* ShellScript */,
 			);
 			buildRules = (
+				555417BB1795F53B00659F19 /* PBXBuildRule */,
+				555417B41795EF2E00659F19 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
