@@ -61,6 +61,7 @@
 		55B974511796060900055789 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B974501796060900055789 /* SystemConfiguration.framework */; };
 		55B974531796060F00055789 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B974521796060F00055789 /* MobileCoreServices.framework */; };
 		55B97457179606D400055789 /* DataUploadingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97456179606D400055789 /* DataUploadingClient.m */; };
+		55B9745B1796093A00055789 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B9745A1796093A00055789 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -192,6 +193,8 @@
 		55B974521796060F00055789 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		55B97455179606D400055789 /* DataUploadingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUploadingClient.h; sourceTree = "<group>"; };
 		55B97456179606D400055789 /* DataUploadingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUploadingClient.m; sourceTree = "<group>"; };
+		55B974591796093A00055789 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		55B9745A1796093A00055789 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +300,7 @@
 		5554174F1795EA1800659F19 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				55B974581796093A00055789 /* JSONKit */,
 				55B97433179605B600055789 /* AFNetworking */,
 				555417501795EA1800659F19 /* MagicalRecord */,
 			);
@@ -449,6 +453,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		55B974581796093A00055789 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				55B974591796093A00055789 /* JSONKit.h */,
+				55B9745A1796093A00055789 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,6 +590,7 @@
 				55B9744E179605B600055789 /* AFXMLRequestOperation.m in Sources */,
 				55B9744F179605B600055789 /* UIImageView+AFNetworking.m in Sources */,
 				55B97457179606D400055789 /* DataUploadingClient.m in Sources */,
+				55B9745B1796093A00055789 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
