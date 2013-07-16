@@ -60,6 +60,7 @@
 		55B9744F179605B600055789 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97446179605B600055789 /* UIImageView+AFNetworking.m */; };
 		55B974511796060900055789 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B974501796060900055789 /* SystemConfiguration.framework */; };
 		55B974531796060F00055789 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B974521796060F00055789 /* MobileCoreServices.framework */; };
+		55B97457179606D400055789 /* DataUploadingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B97456179606D400055789 /* DataUploadingClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -189,6 +190,8 @@
 		55B97446179605B600055789 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		55B974501796060900055789 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		55B974521796060F00055789 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		55B97455179606D400055789 /* DataUploadingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUploadingClient.h; sourceTree = "<group>"; };
+		55B97456179606D400055789 /* DataUploadingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUploadingClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				555417331795E71200659F19 /* AppDelegate.m */,
 				55ABA9D51795FE510048CE4B /* DataStore.h */,
 				55ABA9D61795FE510048CE4B /* DataStore.m */,
+				55B97455179606D400055789 /* DataUploadingClient.h */,
+				55B97456179606D400055789 /* DataUploadingClient.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				55B9744D179605B600055789 /* AFURLConnectionOperation.m in Sources */,
 				55B9744E179605B600055789 /* AFXMLRequestOperation.m in Sources */,
 				55B9744F179605B600055789 /* UIImageView+AFNetworking.m in Sources */,
+				55B97457179606D400055789 /* DataUploadingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
