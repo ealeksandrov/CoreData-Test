@@ -13,6 +13,12 @@
 
 static NSString * const kAPIBaseURLString = @"http://spall.ru/";
 
+@interface DataUploadingClient ()
+
+- (void)sendMessage:(NSString *)messageString withSuccessBlock:(void (^)(NSDictionary *))successBlock andFailureBlock:(void (^)(NSString *))failureBlock;
+
+@end
+
 @implementation DataUploadingClient
 
 + (DataUploadingClient *)sharedClient
@@ -41,14 +47,55 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
     
     [self setParameterEncoding:AFJSONParameterEncoding];
     
+    __weak typeof(self) weakSelf = self;
+    
+    [weakSelf setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if(status) {
+            DLog(@"Server is available now");
+            if([Message MR_countOfEntities]) {
+                [weakSelf sendOldestStoredMessage];
+            }
+        } else {
+            DLog(@"Server is not available now");
+        }
+    }];
+    
     return self;
 }
 
 
 - (void)newItemAdded {
-    Message *aMessage = [Message MR_findFirstOrderedByAttribute:@"creationDate" ascending:YES];
-    NSLog(@"oldest of %d entities:%@",[Message MR_countOfEntities],aMessage);
-    [[DataUploadingClient sharedClient] sendMessage:aMessage.messageStr withSuccessBlock:nil andFailureBlock:nil];
+    if(self.networkReachabilityStatus) {
+        [self sendOldestStoredMessage];
+    }
+}
+
+- (void)sendOldestStoredMessage {
+    __weak typeof(self) weakSelf = self;
+    __block Message *nextToSend = [Message MR_findFirstOrderedByAttribute:@"creationDate" ascending:YES];
+    
+    void (^uploadSuccessBlock) (NSDictionary *) = ^ (NSDictionary *responseDict) {
+        //DO SMTH
+        [nextToSend MR_deleteEntity];
+        
+        if([Message MR_countOfEntities]) {
+            [weakSelf sendOldestStoredMessage];
+        }
+    };
+    
+    void (^uploadFailBlock) (NSString *) = ^ (NSString *errorDescription) {
+        DLog(@"upload failed: %@",errorDescription);
+        
+        double delayInSeconds = 5.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        if(self.networkReachabilityStatus) {
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [weakSelf sendOldestStoredMessage];
+            });
+        }
+    };
+    
+    [weakSelf sendMessage:nextToSend.messageStr withSuccessBlock:uploadSuccessBlock andFailureBlock:uploadFailBlock];
 }
 
 - (void)sendMessage:(NSString *)messageString withSuccessBlock:(void (^)(NSDictionary *))successBlock andFailureBlock:(void (^)(NSString *))failureBlock {
@@ -61,7 +108,6 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
     
     [[DataUploadingClient sharedClient] getPath:fullPath parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSDictionary *jsonDic = [JSON objectFromJSONData];
-        NSLog(@"%@",jsonDic);
         
         if (!jsonDic) {
             NSString *errorString = @"Нет ответа от сервера!";
@@ -73,7 +119,7 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
             if(successBlock) successBlock(jsonDic);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSString *errorDescription = [NSString stringWithFormat:@"user auth fail with %@",error.localizedDescription];
+        NSString *errorDescription = [NSString stringWithFormat:@"Sending fail with %@",error.localizedDescription];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:errorDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         if(failureBlock) failureBlock(error.localizedDescription);

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DataUploadingClient.h"
 
 @implementation AppDelegate
 
@@ -15,9 +16,10 @@
     NSString *bundleId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     NSString *bundleShortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-    NSLog(@"Starting %@ v%@ (%@)", bundleId, bundleShortVersion, bundleVersion);
+    DLog(@"Starting %@ v%@ (%@)", bundleId, bundleShortVersion, bundleVersion);
     
     [MagicalRecord setupCoreDataStack];
+    [DataUploadingClient sharedClient];
     
     return YES;
 }
