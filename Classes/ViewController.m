@@ -16,18 +16,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)buttonClick:(id)sender {
     Message *newMessage = [Message MR_createEntity];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -35,6 +23,10 @@
     [df setTimeStyle:NSDateFormatterMediumStyle];
     [newMessage setMessageStr:[NSString stringWithFormat:@"test message created on %@",[df stringFromDate:[NSDate date]]]];
     [newMessage setCreationDate:[NSDate date]];
+    
+    // Для реального проекта с множеством точек изменения БД можно было бы использовать NSNotification (Observer pattern).
+    // Но в нашем случае событие возникает в одном месте, получить ссылку на обработчик легко.
+    // Еще можно отслеживать NSFetchedResultsController - controllerDidChangeContent, но это опять усложнение для данного случая.
     [[DataUploadingClient sharedClient] newItemAdded];
 }
 

@@ -10,6 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "JSONKit.h"
 #import "Message.h"
+#import "TTObjectFactory.h"
 
 static NSString * const kAPIBaseURLString = @"http://spall.ru/";
 
@@ -43,7 +44,7 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
     [self registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     
     // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-	//[self setDefaultHeader:@"Accept" value:@"application/json"];
+	[self setDefaultHeader:@"Accept" value:@"application/json"];
     
     [self setParameterEncoding:AFJSONParameterEncoding];
     
@@ -75,11 +76,20 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
     __block Message *nextToSend = [Message MR_findFirstOrderedByAttribute:@"creationDate" ascending:YES];
     
     void (^uploadSuccessBlock) (NSDictionary *) = ^ (NSDictionary *responseDict) {
-        //DO SMTH
+        TTParentObject *newObject = [[TTObjectFactory sharedFactory] createWithType:[responseDict objectForKey:@"type"]];
+        
+        [newObject onRecieve];
         [nextToSend MR_deleteEntity];
         
         if([Message MR_countOfEntities]) {
-            [weakSelf sendOldestStoredMessage];
+            //delay here, so we can see schedule of messages
+            double delayInSeconds = 0.3;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [weakSelf sendOldestStoredMessage];
+            });
+        } else {
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         }
     };
     
