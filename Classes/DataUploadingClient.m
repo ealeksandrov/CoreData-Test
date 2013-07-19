@@ -111,8 +111,7 @@ static NSString * const kAPIBaseURLString = @"http://spall.ru/";
 - (void)sendMessage:(NSString *)messageString withSuccessBlock:(void (^)(NSDictionary *))successBlock andFailureBlock:(void (^)(NSString *))failureBlock {
     
     NSString *basePath = @"m.php";
-    NSDictionary *par = @{@"type" : @"c"};
-    NSString *parameters = [NSString stringWithFormat:@"?%@=%@",messageString,[par JSONString]];
+    NSString *parameters = [NSString stringWithFormat:@"?m=%@",messageString];
     NSString *fullPath = [NSString stringWithFormat:@"%@%@",basePath,parameters];
     fullPath = [fullPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
